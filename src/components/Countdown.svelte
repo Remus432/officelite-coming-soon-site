@@ -1,0 +1,74 @@
+<script lang="ts">
+
+</script>
+
+<article class="countdown">
+  <p class="countdown__deadline">Coming <span>4 Nov 2020</span></p>
+  <div class="countdown__time">
+    <div class="countdown__days">
+      <span class="countdown__amount">47</span>
+      <span class="countdown__unit">days</span>
+    </div>
+    <div class="countdown__hours">
+      <span class="countdown__amount">07</span>
+      <span class="countdown__unit">hours</span>
+    </div>
+    <div class="countdown__minutes">
+      <span class="countdown__amount">56</span>
+      <span class="countdown__unit">min</span>
+    </div>
+    <div class="countdown__seconds">
+      <span class="countdown__amount">14</span>
+      <span class="countdown__unit">sec</span>
+    </div>
+  </div>
+</article>
+
+<style lang="scss">
+  @use "../styles/mixins";
+
+  .countdown {
+    text-align: center;
+
+    @include mixins.flexColCenter;
+
+    &__deadline {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .5rem;
+      line-height: 4.8rem;
+      text-transform: uppercase;
+
+      span { color: var(--color-accent); }
+    }
+
+    &__time {
+      display: flex;
+      gap: 1.3rem;
+      margin-top: var(--spacing-s--2);
+
+      & > div {
+        background-color: var(--color-headline);
+        border-radius: .4rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1.05rem 1.65rem;
+      }
+    }
+
+    &__amount {
+      color: #fff;
+      font-size: var(--fsize-l);
+      font-weight: 700;
+      line-height: 4.8rem;
+    }
+
+    &__unit {
+      color: rgba(#fff, .5);
+      font-size: var(--fsize-xs);
+      font-weight: 700;
+      line-height: 2.8rem;
+    }
+  }
+</style>
