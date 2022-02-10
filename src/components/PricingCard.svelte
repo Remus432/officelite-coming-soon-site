@@ -4,15 +4,24 @@
   export let isProPack
   // Components
   import Button from "./Button.svelte"
+
+  const selectMargin = () => {
+    const screenW = window.innerWidth
+
+    if (screenW >= 768 && screenW <= 1200) return "m--1"
+    return "m--2"
+  }
 </script>
 
 <article class="pricing-card {isProPack ? "pro" : ""}">
-  <h2 class="pricing-pack">{info.package}</h2>
-  <div class="pricing-option">
-    <p class="pricing-option__price">{info.price}</p>
-    <p class="pricing-option__billing">
-      {info.billing}
-    </p>
+  <div class="pricing-pack">
+    <h2 class="pricing-title">{info.package}</h2>
+    <div class="pricing-option">
+      <p class="pricing-option__price">{info.price}</p>
+      <p class="pricing-option__billing">
+        {info.billing}
+      </p>
+    </div>
   </div>
   <ul class="pricing-features">
     {#each info.features as feature}
@@ -22,20 +31,32 @@
   <Button 
     content="Try for Free"
     btnType={isProPack ? "3" : "2"}
-    marginTop="m--2" />  
+    marginTop={selectMargin()} />  
 </article>
 
 <style lang="scss">
   @use "../styles/mixins";
+  @use "../styles/query";
 
   .pricing-card {
     background-color: #fff;
     box-shadow: 0 5rem 5rem -2.5rem rgba(#4B5C9A, .1);
     border-radius: 1.3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: var(--spacing-l--1) 0;
     text-align: center;
 
     @include mixins.flexColCenter;
+
+    @include query.respond(tab) {
+      display: grid;
+      grid-template-areas: 
+        "pricing-pack pricing-features";
+      padding: 4.8rem 0;
+      padding-inline: 4.8rem 9rem;
+      text-align: left;
+    }
 
     &.pro {
       background-color: var(--color-accent);
@@ -44,12 +65,20 @@
       background-position: center -75vw;
       background-repeat: no-repeat;
 
+      @include query.respond(tab) {
+        background-size: 180%;
+        background-position: 90% -60vw;
+      }
       
       & p, h2, li { color: #fff; }
     }
   }
 
   .pricing-pack {
+    grid-area: pricing-pack;
+  }
+
+  .pricing-title {
     color: var(--color-headline);
 
     @include mixins.fontStyle(var(--fsize-m), 700, 2.8rem);
@@ -57,6 +86,10 @@
 
   .pricing-option {
     margin-top: var(--spacing-l--1);
+
+    @include query.respond(tab) {
+      margin-top: var(--spacing-s--1);
+    }
 
     &__price {
       @include mixins.fontStyle(var(--fsize-xxl), 700, 6.4rem);
@@ -70,6 +103,7 @@
   }
 
   .pricing-features {
+    grid-area: pricing-features;
     margin-top: var(--spacing-l--2);
 
     &__item {

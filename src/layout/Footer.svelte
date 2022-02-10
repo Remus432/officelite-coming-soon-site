@@ -14,6 +14,7 @@
 
 <style lang="scss">
   @use "../styles/mixins";
+  @use "../styles/query";
 
   .footer-section {
     background-color: var(--color-footer-bg);
@@ -22,6 +23,11 @@
     background-position: center -170vw;
     background-repeat: no-repeat;
     padding: 10rem 2.3rem;
+
+    @include query.respond(tab) {
+      background-size: 90%;
+      background-position: center -110vw;;
+    }
 
     @include mixins.flexColCenter;
   }

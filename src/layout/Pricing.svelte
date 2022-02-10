@@ -36,6 +36,8 @@
 </section>
 
 <style lang="scss">
+  @use "../styles/query";
+
   .pricing-section {
     display: flex;
     flex-direction: column;
@@ -43,6 +45,10 @@
     padding-inline: var(--spacing-m--1);
     position: relative;
     margin-top: 10rem;
+
+    @include query.respond(tab) {
+      padding-inline: var(--spacing-l--1);
+    }
 
     &::before {
       background-color: var(--color-footer-bg);

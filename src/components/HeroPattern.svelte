@@ -16,8 +16,9 @@
     top: 5rem;
 
     @include query.respond(tab) {
+      transform: scale(1.2); 
       left: unset;
-      right: 0;
+      right: 10vw;
     }
     
     .circle {

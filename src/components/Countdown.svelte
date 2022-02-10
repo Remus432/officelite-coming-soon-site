@@ -26,6 +26,7 @@
 
 <style lang="scss">
   @use "../styles/mixins";
+  @use "../styles/query";
 
   .countdown {
     text-align: center;
@@ -48,12 +49,23 @@
       gap: 1.3rem;
       margin-top: var(--spacing-s--2);
 
+      @include query.respond(tab) {
+        gap: 1.6rem;
+      }
+
       & > div {
         background-color: var(--color-headline);
         border-radius: .4rem;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         padding: 1.05rem 1.65rem;
+
+        @include query.respond(tab) {
+          border-radius: 1.3rem;
+          height: 12.8rem;
+          width: 10rem;
+        }
       }
     }
 
