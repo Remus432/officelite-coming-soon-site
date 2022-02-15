@@ -50,6 +50,12 @@
       padding-inline: var(--spacing-l--1);
     }
 
+    @include query.respond(desktop) {
+      flex-direction: row;
+      justify-content: center;
+      padding-inline: 16.5rem;
+    }
+
     &::before {
       background-color: var(--color-footer-bg);
       bottom: -1rem;

@@ -19,5 +19,9 @@
       text-align: left;
       margin-top: 7.2rem;
     }
+
+    @include query.respond(desktop) {
+      padding-inline: 16.5rem;
+    }
   }
 </style>

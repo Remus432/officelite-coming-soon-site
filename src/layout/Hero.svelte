@@ -31,6 +31,10 @@
       flex-direction: row-reverse;
       padding-inline: var(--spacing-l--1);
     }
+
+    @include query.respond(desktop) {
+      padding-inline: 16.5rem;
+    }
   }
 
 </style>

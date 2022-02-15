@@ -58,6 +58,14 @@
       text-align: left;
     }
 
+    @include query.respond(desktop) {
+      grid-template-areas:
+        "pricing-pack"
+        "pricing-features";
+      padding: 4rem 6.5rem;
+      text-align: center;
+    }
+
     &.pro {
       background-color: var(--color-accent);
       background-image: url("src/assets/home/bg-pattern-pricing.svg");

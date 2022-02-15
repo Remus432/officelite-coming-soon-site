@@ -150,13 +150,13 @@
   @use "../../styles/query";
 
   .illustration {
-    position: relative;
-    right: 20vw;
-
+  
     svg {
       width: 100%;
 
       @include query.respond(tab) {
+        position: relative;
+        right: 20vw;
         width: 220%;
       }
     }
