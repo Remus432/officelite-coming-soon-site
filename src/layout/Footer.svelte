@@ -5,7 +5,7 @@
 </script>
 
 <footer class="footer-section">
-  <Countdown />
+  <Countdown theme={"dark"} />
   <Button 
     content="Get Started"
     btnType="1"

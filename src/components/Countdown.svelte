@@ -1,8 +1,8 @@
 <script lang="ts">
-
+  export let theme: string
 </script>
 
-<article class="countdown">
+<article class="countdown {theme}">
   <p class="countdown__deadline">Coming <span>4 Nov 2020</span></p>
   <div class="countdown__time">
     <div class="countdown__days">
@@ -33,8 +33,18 @@
 
     @include mixins.flexColCenter;
 
+    &.dark {
+      .countdown__deadline { color: #fff; }
+    }
+
+    &.light {
+      .countdown__deadline { color: var(--color-headline); }
+      .countdown__time > div { background-color: #E9EDFB; }
+      .countdown__amount { color: var(--color-accent); }
+      .countdown__unit { color: var(--color-headline); }
+    }
+
     &__deadline {
-      color: #fff;
       font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: .5rem;

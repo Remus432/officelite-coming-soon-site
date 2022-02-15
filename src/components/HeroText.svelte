@@ -1,17 +1,21 @@
 <script lang="ts">
   // Variable exports
   export let content
+  export let hideBtn: boolean = false
   // Components
   import Button from "./Button.svelte"
+
 </script>
 
 <article class="hero-text">
   <h1 class="hero-text__headline">{content.headline}</h1>
   <p class="hero-text__description">{content.description}</p>
-  <Button 
-    content="Get Started"
-    btnType="1"
-    marginTop="m--1" />
+  {#if !hideBtn}
+    <Button 
+      content="Get Started"
+      btnType="1"
+      marginTop="m--1" />
+  {/if}
 </article>
 
 <style lang="scss">

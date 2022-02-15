@@ -14,6 +14,7 @@
     left: 50%;
     position: absolute;
     top: 5rem;
+    z-index: -1;
 
     @include query.respond(tab) {
       transform: scale(1.2); 

@@ -1,11 +1,15 @@
 <script lang="ts">
   // Graphic Assets
   import OfficeliteLogo from "../assets/shared/logo.svg"
+  // Third Party
+  import { Link } from "svelte-routing"
 </script>
 
-<nav class="nav">
-  <img src={OfficeliteLogo} alt="Officelite Logo" class="nav__logo">
-</nav>
+<Link to="/">
+  <nav class="nav">
+    <img src={OfficeliteLogo} alt="Officelite Logo" class="nav__logo">
+  </nav>
+</Link>
 
 <style lang="scss">
   @use "../styles/query";

@@ -1,19 +1,18 @@
 <script lang="ts">
-  // Components
-  import HeroPattern from "./components/HeroPattern.svelte"
-  // Layout
-  import Nav from "./layout/Nav.svelte"
-  import Hero from "./layout/Hero.svelte"
-  import Pricing from "./layout/Pricing.svelte"
-  import Footer from "./layout/Footer.svelte"
+  // Pages
+  import Home from "./pages/Home.svelte"
+  import SignUp from "./pages/SignUp.svelte"
+  // Third Party Libraries
+  import { Router, Route } from "svelte-routing"
+
+  export let url = ""
 </script>
 
 <main>
-  <HeroPattern />
-  <Nav />
-  <Hero />
-  <Pricing />
-  <Footer />
+  <Router url="{url}">
+    <Route path="/" component="{Home}" />
+    <Route path="/sign-up" component="{SignUp}" />
+  </Router>
 </main>
 
 <style lang="scss" global>
