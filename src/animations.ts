@@ -46,11 +46,15 @@ export const signUpFormAnim = () => {
 }
 
 export const formDeliveredAnim = () => {
-  formDeliveredTimeline.fromTo(".form__sent", {
-    opacity: 1,
+  formDeliveredTimeline.to(".form__sent", {
+    "clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
     duration: 1
-  }, {
-    
+  })
+  .from(".form__sent > *", {
+    opacity: 0,
+    y: 50,
+    stagger: 0.4,
+    duration: 1
   })
 }
 
@@ -62,7 +66,7 @@ export const countdownAnim = () => {
     opacity: 1,
     y: 0,
     duration: 1
-  }, "-= 1")
+  })
   .fromTo(".countdown__time > div", {
     opacity: 0,
     y: 50
@@ -71,7 +75,7 @@ export const countdownAnim = () => {
     y: 0,
     stagger: 0.4,
     duration: 1
-  })
+  }, "-= 2")
   .fromTo(".countdown__time > div > span", {
     opacity: 0,
     y: 100

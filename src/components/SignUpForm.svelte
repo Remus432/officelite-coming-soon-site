@@ -119,6 +119,7 @@
     &__sent {
       background-color: var(--color-accent);
       color: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
       height: 100%;
       justify-content: center;
       padding: var(--spacing-m--2);
