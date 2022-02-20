@@ -6,7 +6,7 @@
 </script>
 
 <Link to="/">
-  <nav class="nav">
+  <nav class="nav" tabindex="0">
     <img src={OfficeliteLogo} alt="Officelite Logo" class="nav__logo">
   </nav>
 </Link>

@@ -1,23 +1,30 @@
 <script lang="ts">
+  // Animations
+  import { countdownAnim } from "../animations"
+  // Core
+  import { onMount } from "svelte"
+
   export let theme: string
+
+  onMount(() => countdownAnim())
 </script>
 
-<article class="countdown {theme}">
+<article class="countdown {theme}" tabindex="0">
   <p class="countdown__deadline">Coming <span>4 Nov 2020</span></p>
   <div class="countdown__time">
-    <div class="countdown__days">
+    <div class="countdown__days" tabindex="0">
       <span class="countdown__amount">47</span>
       <span class="countdown__unit">days</span>
     </div>
-    <div class="countdown__hours">
+    <div class="countdown__hours" tabindex="0">
       <span class="countdown__amount">07</span>
       <span class="countdown__unit">hours</span>
     </div>
-    <div class="countdown__minutes">
+    <div class="countdown__minutes" tabindex="0">
       <span class="countdown__amount">56</span>
       <span class="countdown__unit">min</span>
     </div>
-    <div class="countdown__seconds">
+    <div class="countdown__seconds" tabindex="0">
       <span class="countdown__amount">14</span>
       <span class="countdown__unit">sec</span>
     </div>
@@ -52,6 +59,10 @@
       text-transform: uppercase;
 
       span { color: var(--color-accent); }
+
+      @include query.respond(desktop) {
+        align-self: flex-start;
+      }
     }
 
     &__time {
@@ -71,6 +82,8 @@
         justify-content: center;
         padding: 1.05rem 1.65rem;
 
+        &:focus-visible { outline: 3px solid var(--color-accent); }
+
         @include query.respond(tab) {
           border-radius: 1.3rem;
           height: 12.8rem;
@@ -80,8 +93,10 @@
     }
 
     &__amount {
+      --fsize-clamped: #{clamp(var(--fsize-l), 5vw, var(--fsize-xxl))};
+
       color: #fff;
-      font-size: var(--fsize-l);
+      font-size: var(--fsize-clamped);
       font-weight: 700;
       line-height: 4.8rem;
     }

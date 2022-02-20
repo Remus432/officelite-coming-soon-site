@@ -1,16 +1,26 @@
 <script lang="ts">
+  // Routing
   import { Link } from "svelte-routing"
 
   export let content: string
   export let btnType: string
   export let marginTop: string
+  export let page: string = "/"
+  export let isFullWidth: string = ""
 </script>
 
-<Link to="/sign-up">
-  <button class="btn btn--{btnType} {marginTop}">
+
+{#if page !== "sign-up"}
+  <Link to="/sign-up">
+    <button class="btn btn--{btnType} {marginTop}">
+      {content}
+    </button>
+  </Link>
+{:else}
+  <button class="btn btn--{btnType} {marginTop} {isFullWidth}">
     {content}
   </button>
-</Link>
+{/if}
 
 <style lang="scss">
   @use "../styles/mixins";
@@ -24,6 +34,7 @@
     transition: all .3s ease-out;
 
     &:hover { transform: translateY(-5px) }
+    &:focus-visible { outline: 3px solid var(--color-accent); }
 
     @include mixins.fontStyle(var(--fsize-s), 700, 2.8rem);
 
@@ -47,6 +58,10 @@
       color: var(--color-accent);
 
       &:hover { color: var(--color-btn-hover); }
+    }
+
+    &.full-width { 
+      width: 100%; 
     }
   }
 </style>

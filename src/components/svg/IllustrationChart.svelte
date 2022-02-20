@@ -1,8 +1,6 @@
 <script lang="ts">
   // Animations
   import { progressCardAnim, lettersCardAnim, statsCardAnim } from "../../animations"
-  // Third Party
-  import { gsap } from "gsap"
   // Core
   import { onMount } from "svelte"
 

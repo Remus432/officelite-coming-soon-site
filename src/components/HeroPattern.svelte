@@ -21,6 +21,10 @@
       left: unset;
       right: 10vw;
     }
+
+    @include query.respond(desktop) {
+      transform: scale(2.5);
+    }
     
     .circle {
       animation: rotateCircle 5s infinite linear;

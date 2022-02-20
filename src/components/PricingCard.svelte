@@ -1,9 +1,10 @@
 <script lang="ts">
+  // Components
+  import Button from "./Button.svelte"
+
   // Exports
   export let info: any
   export let isProPack
-  // Components
-  import Button from "./Button.svelte"
 
   const selectMargin = () => {
     const screenW = window.innerWidth
@@ -13,8 +14,8 @@
   }
 </script>
 
-<article class="pricing-card {isProPack ? "pro" : ""}">
-  <div class="pricing-pack">
+<article class="pricing-card {isProPack ? "pro" : ""}" tabindex="0">
+  <div class="pricing-pack" tabindex="0">
     <h2 class="pricing-title">{info.package}</h2>
     <div class="pricing-option">
       <p class="pricing-option__price">{info.price}</p>
@@ -23,7 +24,7 @@
       </p>
     </div>
   </div>
-  <ul class="pricing-features">
+  <ul class="pricing-features" tabindex="0">
     {#each info.features as feature}
       <li class="pricing-features__item">{feature}</li>
     {/each}
@@ -46,6 +47,8 @@
     justify-content: space-between;
     padding: var(--spacing-l--1) 0;
     text-align: center;
+
+    &:focus { outline: 3px solid var(--color-accent); }
 
     @include mixins.flexColCenter;
 
@@ -72,6 +75,8 @@
       background-size: 226%;
       background-position: center -75vw;
       background-repeat: no-repeat;
+
+      &:focus { outline: 3px solid #fff; }
 
       @include query.respond(tab) {
         background-size: 180%;

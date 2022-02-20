@@ -1,13 +1,21 @@
 <script lang="ts">
-  // Variable exports
-  export let content
-  export let hideBtn: boolean = false
+  // Animations
+  import { heroTextAnim } from "../animations"
   // Components
   import Button from "./Button.svelte"
+  // Core
+  import { onMount } from "svelte"
 
+   // Variable exports
+  export let content
+  export let hideBtn: boolean = false
+
+  onMount(() => {
+    heroTextAnim()
+  })
 </script>
 
-<article class="hero-text">
+<article class="hero-text" tabindex="0">
   <h1 class="hero-text__headline">{content.headline}</h1>
   <p class="hero-text__description">{content.description}</p>
   {#if !hideBtn}
@@ -28,6 +36,16 @@
 
     margin-top: var(--spacing-xl--1);
     text-align: center;
+
+    &__headline::selection {
+        background-color: var(--color-accent);
+        color: #fff;
+    }
+
+    &__description::selection {
+        background-color: var(--color-accent);
+        color: #fff;
+    }
 
     @include query.respond(tab) {
       margin-top: unset;

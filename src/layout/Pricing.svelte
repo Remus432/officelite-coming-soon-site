@@ -1,5 +1,12 @@
 <script lang="ts">
+  // Components
   import PricingCard from "../components/PricingCard.svelte"
+  // Animations
+  import { pricingCardsAnim } from "../animations"
+  // Core
+  import { onMount } from "svelte"
+
+  onMount(() => pricingCardsAnim())
 
   const generateCardInfo = (pack, price, billing, features) => {
     return {
